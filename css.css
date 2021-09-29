@@ -1,0 +1,17 @@
+.login-form {
+    width: 340px;
+    margin: 50px auto;
+}
+
+.login-form h2 {
+    margin: 0 0 15px;
+}
+
+
+body{
+    background: #eeeeee;
+}
+.img{
+    width: 50%;
+    height: 50px;
+}
