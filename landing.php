@@ -38,6 +38,10 @@
                                 case 'success_password':
                                     echo "<div class='alert alert-success'>Le mot de passe a bien été modifié ! </div>";
                                 break; 
+
+                                
+
+
                             }
                         }
                     ?>

@@ -1,4 +1,6 @@
-
+<?php
+        session_start();
+?>
 <!DOCTYPE html>
     <html lang="en">
         <head>
@@ -14,57 +16,61 @@
         <body>
         <div class="login-form">
             <?php 
-                if(isset($_GET['reg_err']))
+                if (isset($_POST['etat_inscription']))
                 {
-                    $err = htmlspecialchars($_GET['reg_err']);
+                    $err = $_POST['etat_inscription'];
 
-                    switch($err)
+                    if($err == 'success')
                     {
-                        case 'success':
-                        ?>
-                            <div class="alert alert-success">
-                                <strong>Succès</strong> inscription réussie !
-                            </div>
-                        <?php
-                        break;
+                        header('Location: index.php');die();
+                    }
+                    if($err == 'password')
+                    {
 
-                        case 'password':
-                        ?>
+                    ?>
                             <div class="alert alert-danger">
                                 <strong>Erreur</strong> mot de passe différent
                             </div>
-                        <?php
-                        break;
+                    <?php
+                    }
+                    if($err == 'email')
+                    {
 
-                        case 'email':
-                        ?>
+                    ?>
                             <div class="alert alert-danger">
                                 <strong>Erreur</strong> email non valide
                             </div>
                         <?php
-                        break;
+                    }
+                    if($err == 'email_length')
+                    {
 
-                        case 'email_length':
                         ?>
+
                             <div class="alert alert-danger">
                                 <strong>Erreur</strong> email trop long
                             </div>
-                        <?php 
-                        break;
+                        <?php
+                    }
+                    if($err == 'pseudo_length')
+                    {
 
-                        case 'pseudo_length':
                         ?>
+
                             <div class="alert alert-danger">
                                 <strong>Erreur</strong> pseudo trop long
                             </div>
-                        <?php 
-                        case 'already':
+                        <?php
+                    }
+                    if($err == 'already')
+                    {
+
                         ?>
+
                             <div class="alert alert-danger">
                                 <strong>Erreur</strong> compte deja existant
                             </div>
-                        <?php 
-
+                        <?php
                     }
                 }
                 ?>
